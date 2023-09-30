@@ -87,7 +87,13 @@ p {
 	margin-bottom: 1em;
 }
 .prose p {
-	margin-bottom: 2em;
+	margin-bottom: .5em;
+}
+.prose h2 {
+	font-size: 2em;
+}
+.prose h3 {
+	font-size: 1em;
 }
 textarea {
 	width: 100%;

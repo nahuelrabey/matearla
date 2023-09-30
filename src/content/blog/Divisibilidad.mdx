@@ -1,0 +1,47 @@
+---
+title: 'Divisibilidad'
+description: 'Lorem ipsum dolor sit amet'
+pubDate: 'Jul 03 2022'
+heroImage: '/blog-placeholder-5.jpg'
+---
+import LogicFlow from "../../components/LogicFlow.astro"
+
+Definición
+
+$\forall a,d \in \mathbb{Z} $, $ d \mid a \Longleftrightarrow a = d\cdot k, k \in \mathbb{Z}$
+
+Propiedades
+
+1\. $$d \mid a \land d \mid b \Rightarrow d \mid a + b$$
+
+<LogicFlow>
+- $$\Rightarrow a = k_1d \land b = k_2d $$
+- $$\Rightarrow a+b = k_1 d + k_2 d$$
+- $$\Rightarrow a+b = (k_1 + k_2) d$$
+- $$d \mid a + b$$
+</LogicFlow>
+
+Observación: no sé cumple un sí sollo sí 
+<LogicFlow>
+- $$ d \mid a+b \land (d\nmid a \lor d\nmid b) $$
+- $$ 6 \mid 3+3 \land 6\nmid 3 $$
+</LogicFlow>
+
+2\. $$d \mid a \Longleftrightarrow d \mid ac, \forall c\in \Z$$
+<LogicFlow>
+- $$ a = dk$$
+- $$ \Leftrightarrow ac = dkc \land kc\in \Z$$
+- $$ \Leftrightarrow ac = dk'$$
+- $$ \Leftrightarrow ac = dk'$$
+- $$ \Leftrightarrow d \mid ac$$
+</LogicFlow>
+
+3\. $$d \mid a \Longleftrightarrow d \mid -a \Longleftrightarrow d \mid abs(a)$$
+<LogicFlow>
+- $$ d \mid a$$
+- $$ \Leftrightarrow a = dk $$
+- $$ \Leftrightarrow -a = d(-k), (-k)=k'\in \Z $$
+- $$ \Leftrightarrow -a = dk' $$
+- $$ \Leftrightarrow d \mid -a $$
+</LogicFlow>
+Luego, $$d \mid a \land d \mid -a \Longleftrightarrow d\mid abs(a)$$

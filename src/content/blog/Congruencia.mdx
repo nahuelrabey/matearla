@@ -1,0 +1,59 @@
+---
+title: "Congruencia"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jul 03 2022"
+# heroImage: "/blog-placeholder-5.jpg"
+---
+
+import LogicFlow from "../../components/LogicFlow.astro";
+
+## Definición
+
+$$\forall a,b \in \mathbb{Z}$$, $$a \equiv b (d) \Longleftrightarrow d \mid a - b$$
+
+## Propiedades
+
+### 1\. $$a \equiv a, \forall a\in \Z$$
+
+<LogicFlow>
+  - $$a \equiv b$$ - $$\Leftrightarrow d \mid b - a$$ - $$\Leftrightarrow d \mid
+  -(b - a)$$ - $$\Leftrightarrow d \mid a-b$$ - $$\Leftrightarrow b \equiv a$$
+</LogicFlow>
+
+### 2\. $$a \equiv b \Longleftrightarrow b \equiv a$$
+
+<LogicFlow>
+  - $$a \equiv b$$ - $$\Leftrightarrow d \mid b - a$$ - $$\Leftrightarrow d \mid
+  -(b - a)$$ - $$\Leftrightarrow d \mid a-b$$ - $$\Leftrightarrow b \equiv a$$
+</LogicFlow>
+
+### 3\. $$a \equiv b \land b \equiv c \Longrightarrow a \equiv c$$
+
+<LogicFlow>
+  - $$ a \equiv b \land b \equiv c$$ - $$ d \mid a - b \land d \mid b - c$$ - $$
+  d \mid (a - b) + (b - c) \gets$$ (por propiedad) - $$ d \mid a - c$$ - $$ a
+  \equiv c $$
+</LogicFlow>
+
+### 4\. $$a \equiv b \Longleftrightarrow cb \equiv ca$$, $$\forall c \in \Z $$
+
+<LogicFlow>
+  - $$ a \equiv b$$ - $$ d \mid a - b$$ - $$ d \mid c(a - b)$$ - $$ d \mid ca -
+  cb$$ - $$ ca \equiv cb$$
+</LogicFlow>
+
+### Observación
+
+Por las propiedad 1, 2 y 3 podemos decir que es una relación de equivalencia. Esto es muy importante, porque agrupa a todos los númeos según su resto
+
+$$a_1 \equiv a_2 \equiv a_3 \equiv \dots \equiv a_n$$
+
+$$\overline{a_1} = \{a_1,a_2,a_3, \dots, a_n\}$$
+
+Generalizando: 
+
+Sea $$mod: \Z^2 \to \Z$$ tal que $$ mod(n, d) = r : n = kd + r, |r| < |n| $$
+
+$$\overline{c} = \{n \in \Z: mod(n, d) = c; d,c\in \Z \}$$
+
+Por lo tanto, podemos usar CUALQUIER ELEMENTO de esta clase de equivalencia en la congruencia para resolver ejercicios

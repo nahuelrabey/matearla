@@ -1,0 +1,16 @@
+---
+import katex from 'katex';
+
+const { formula = '' } = Astro.props;
+const html = katex.renderToString(formula, {throwOnError: false});
+---
+
+<div class="text-center">
+	<span set:html={html} class="" />
+</div>
+
+<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.css"
+	crossorigin="anonymous"
+/>
