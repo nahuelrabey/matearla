@@ -1,0 +1,83 @@
+---
+title: "Guia 1 - Algebra 1 - FCEN"
+description: "Ejercicios resueltos de la primer guía, de la materia Algebra I, de la facultad de ciencias exactas y naturales, de la universidad de buenos aires"
+pubDate: "Oct 03 2023"
+# heroImage: "/blog-placeholder-5.jpg"
+---
+
+import LogicFlow from "../../components/LogicFlow.astro";
+import Warning from "../../components/Warning.astro";
+
+## 13
+Determinar cuáles de las siguientes afirmaciones son verdaderas cualesquiera sean los conjuntos A, B y C de un conjunto referencial V y cuáles no. Para las que sean verdaderas, dar una demostración, para las otras dar un contraejemplo
+
+### i) $$(A \Delta B)-C=(A-C) \Delta (B-C)$$
+
+
+Empiezo investigando el lado izquierdo de la igualdad, intentando llegar al derecho
+<LogicFlow>
+- $$(A \Delta B)-C$$
+- $$[(A \cup B) - (A \cap B)] -C$$
+- $$[(A \cup B) \cap (A \cap B)^c] \cap C^c$$
+- ℹ️ La intersección es distributiva, puedo ordenar de una forma más cómoda
+- $$(A \cup B) \cap (A \cap B)^c \cap C^c$$
+- $$(A \cup B) \cap [(A \cap B)^c \cap C^c]$$
+- $$(A \cup B) \cap \{[(A \cap B)^c \cap C^c] \cup \empty\}$$
+- ℹ️ Cómo $$ C \cap C^ = \empty $$, puedo reemplazar
+- $$(A \cup B) \cap \{[(A \cap B)^c \cap C^c] \cup (C \cap C^c)\}$$
+- ℹ️ Por propiedad distributiva $$(J \cap K) \cup L = (J \cup L) \cap (J \cup L)$$. <br/> Si tomamos, $$J:= (A \cap B)^c$$, $$L:= C$$ $$L := C^c$$, podemos reescribir la expresión anterior de la siguiente manera
+- $$(A \cup B) \cap \{[(A \cap B)^c \cup C] \cap C^c \}$$
+- $$(A \cup B) \cap [(A \cap B)^c \cup C] \cap C^c $$
+- $$(A \cup B) \cap C^c \cap [(A \cap B)^c \cup C]$$
+- Cómo $$(A \cup B) \cap C^c = (A \cap C^c) \cup (B \cap C^c)$$, nos queda lo siguiente
+- $$[(A \cap C^c) \cup (B\cap C^c)] \cap [(A \cap B)^c \cup C]$$
+- $$[(A - C) \cup (B - C)] \cap [(A \cap B) \cup C^c]^c$$
+- $$[(A - C) \cup (B - C)] \cap [(A \cup C) \cap (B \cup C)]^c$$
+- $$[(A - C) \cup (B - C)] \cap [(A - C) \cap (B - C)]^c$$
+- $$[(A - C) \cup (B - C)] - [(A - C) \cap (B - C)]$$
+- La unión, menos la intersección, me da la diferencia geométrica por Definición.
+- $$[(A - C) \Delta (B - C)]$$
+- &#x220E;
+</LogicFlow>
+
+Observación: Para resolver este ejercicio, fui mechando de los dos lados a la vez, de forma lenta, cómo formando un caminito entre dos extremos.
+
+Es **muy importante** saber que esto sólo funciona si utilizamos propiedades de doble implicancia, sino NO ESTÁ DEMOSTRADA LA IGUALDAD.
+
+### iii) $$C \subset A \Rightarrow (B\cap C) \subset (A \Delta B)^c$$
+
+Mediante un diagrama de Venn podemos ver que no se cumple, hay que buscar un contraejemplo para demostrarlo.
+
+<LogicFlow>
+- $$A = [1;10]$$
+- $$B = [6;16]$$
+- $$C = [5;10]$$
+- $$B\cap C = [6;10]$$
+- $$A\Delta B = [1;5]\cup [11;16]$$
+- Podemos ver que $$B\cap C \not\subset A\Delta B$$
+- &#x220E;
+</LogicFlow>
+
+### iv) $$ A \Delta B  = \empty \Leftrightarrow A = B $$
+<Warning>FALTA CORRECCIÓN</Warning>
+
+Trabajamos primero con la consecuencia de izquierda a derecha
+
+#### $$\Rightarrow$$)
+<LogicFlow>
+- $$A \cap B = \empty$$
+- $$(A - B) \cup (B - A)= \empty$$
+- Cómo el vacío es único, la única unión que puede dar el vacío cómo resultado, es la unión consigo mismo
+- $$(A - B) = (B - A) = \empty$$
+- Luego, para que $$A - B = \empty$$, $$A$$ y $$B$$ deben ser iguales
+- $$A=B$$
+</LogicFlow>
+
+#### $$\Leftarrow$$)
+Cómo todas las propiedades utilizadas son de doble implicancia, podemos utilizar el camino inverso con comodidad
+<LogicFlow>
+- $$A=B$$
+- $$(A - B) = (B - A) = \empty$$
+- $$(A - B) \cup (B - A)= \empty$$
+- $$A \cap B = \empty$$
+</LogicFlow>

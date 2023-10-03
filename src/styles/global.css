@@ -92,8 +92,11 @@ p {
 .prose h2 {
 	font-size: 2em;
 }
-.prose h3 {
+.prose h3, .prose h4 {
 	font-size: 1em;
+}
+.prose h4 {
+	font-weight: normal;
 }
 textarea {
 	width: 100%;
