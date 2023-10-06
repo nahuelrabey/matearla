@@ -9,35 +9,58 @@ import LogicFlow from "../../components/LogicFlow.astro";
 import Warning from "../../components/Warning.astro";
 
 ## 13
+
 Determinar cuáles de las siguientes afirmaciones son verdaderas cualesquiera sean los conjuntos A, B y C de un conjunto referencial V y cuáles no. Para las que sean verdaderas, dar una demostración, para las otras dar un contraejemplo
 
 ### i) $$(A \Delta B)-C=(A-C) \Delta (B-C)$$
 
-
 Empiezo investigando el lado izquierdo de la igualdad, intentando llegar al derecho
+
 <LogicFlow>
-- $$(A \Delta B)-C$$
-- $$[(A \cup B) - (A \cap B)] -C$$
-- $$[(A \cup B) \cap (A \cap B)^c] \cap C^c$$
-- ℹ️ La intersección es distributiva, puedo ordenar de una forma más cómoda
-- $$(A \cup B) \cap (A \cap B)^c \cap C^c$$
-- $$(A \cup B) \cap [(A \cap B)^c \cap C^c]$$
-- $$(A \cup B) \cap \{[(A \cap B)^c \cap C^c] \cup \empty\}$$
-- ℹ️ Cómo $$ C \cap C^ = \empty $$, puedo reemplazar
-- $$(A \cup B) \cap \{[(A \cap B)^c \cap C^c] \cup (C \cap C^c)\}$$
-- ℹ️ Por propiedad distributiva $$(J \cap K) \cup L = (J \cup L) \cap (J \cup L)$$. <br/> Si tomamos, $$J:= (A \cap B)^c$$, $$L:= C$$ $$L := C^c$$, podemos reescribir la expresión anterior de la siguiente manera
-- $$(A \cup B) \cap \{[(A \cap B)^c \cup C] \cap C^c \}$$
-- $$(A \cup B) \cap [(A \cap B)^c \cup C] \cap C^c $$
-- $$(A \cup B) \cap C^c \cap [(A \cap B)^c \cup C]$$
-- Cómo $$(A \cup B) \cap C^c = (A \cap C^c) \cup (B \cap C^c)$$, nos queda lo siguiente
-- $$[(A \cap C^c) \cup (B\cap C^c)] \cap [(A \cap B)^c \cup C]$$
-- $$[(A - C) \cup (B - C)] \cap [(A \cap B) \cup C^c]^c$$
-- $$[(A - C) \cup (B - C)] \cap [(A \cup C) \cap (B \cup C)]^c$$
-- $$[(A - C) \cup (B - C)] \cap [(A - C) \cap (B - C)]^c$$
-- $$[(A - C) \cup (B - C)] - [(A - C) \cap (B - C)]$$
-- La unión, menos la intersección, me da la diferencia geométrica por Definición.
-- $$[(A - C) \Delta (B - C)]$$
-- &#x220E;
+$$(A \Delta B)-C$$
+
+$$[(A \cup B) - (A \cap B)] -C$$
+
+$$[(A \cup B) \cap (A \cap B)^c] \cap C^c$$
+
+ℹ️ La intersección es distributiva, puedo ordenar de una forma más cómoda
+
+$$(A \cup B) \cap (A \cap B)^c \cap C^c$$
+
+$$(A \cup B) \cap [(A \cap B)^c \cap C^c]$$
+
+$$(A \cup B) \cap \{[(A \cap B)^c \cap C^c] \cup \empty\}$$
+
+ℹ️ Cómo $$ C \cap C^ = \empty $$, puedo reemplazar
+
+$$(A \cup B) \cap \{[(A \cap B)^c \cap C^c] \cup (C \cap C^c)\}$$
+
+ℹ️ Por propiedad distributiva $$(J \cap K) \cup L = (J \cup L) \cap (J \cup L)$$. <br/> Si tomamos, $$J:= (A \cap B)^c$$, $$L:= C$$ $$L := C^c$$, podemos reescribir la expresión anterior de la siguiente manera
+
+$$(A \cup B) \cap \{[(A \cap B)^c \cup C] \cap C^c \}$$
+
+$$(A \cup B) \cap [(A \cap B)^c \cup C] \cap C^c $$
+
+$$(A \cup B) \cap C^c \cap [(A \cap B)^c \cup C]$$
+
+Cómo $$(A \cup B) \cap C^c = (A \cap C^c) \cup (B \cap C^c)$$, nos queda lo siguiente
+
+$$[(A \cap C^c) \cup (B\cap C^c)] \cap [(A \cap B)^c \cup C]$$
+
+$$[(A - C) \cup (B - C)] \cap [(A \cap B) \cup C^c]^c$$
+
+$$[(A - C) \cup (B - C)] \cap [(A \cup C) \cap (B \cup C)]^c$$
+
+$$[(A - C) \cup (B - C)] \cap [(A - C) \cap (B - C)]^c$$
+
+$$[(A - C) \cup (B - C)] - [(A - C) \cap (B - C)]$$
+
+La unión, menos la intersección, me da la diferencia geométrica por Definición.
+
+$$[(A - C) \Delta (B - C)]$$
+
+&#x220E;
+
 </LogicFlow>
 
 Observación: Para resolver este ejercicio, fui mechando de los dos lados a la vez, de forma lenta, cómo formando un caminito entre dos extremos.
@@ -49,35 +72,210 @@ Es **muy importante** saber que esto sólo funciona si utilizamos propiedades de
 Mediante un diagrama de Venn podemos ver que no se cumple, hay que buscar un contraejemplo para demostrarlo.
 
 <LogicFlow>
-- $$A = [1;10]$$
-- $$B = [6;16]$$
-- $$C = [5;10]$$
-- $$B\cap C = [6;10]$$
-- $$A\Delta B = [1;5]\cup [11;16]$$
-- Podemos ver que $$B\cap C \not\subset A\Delta B$$
-- &#x220E;
+$$A = [1;10]$$
+
+$$B = [6;16]$$
+
+$$C = [5;10]$$
+
+$$B\cap C = [6;10]$$
+
+$$A\Delta B = [1;5]\cup [11;16]$$
+
+Podemos ver que $$B\cap C \not\subset A\Delta B$$
+
+&#x220E;
+
 </LogicFlow>
 
-### iv) $$ A \Delta B  = \empty \Leftrightarrow A = B $$
+### iv) $$ A \Delta B = \empty \Leftrightarrow A = B $$
+
 <Warning>FALTA CORRECCIÓN</Warning>
 
 Trabajamos primero con la consecuencia de izquierda a derecha
 
 #### $$\Rightarrow$$)
+
 <LogicFlow>
-- $$A \cap B = \empty$$
-- $$(A - B) \cup (B - A)= \empty$$
-- Cómo el vacío es único, la única unión que puede dar el vacío cómo resultado, es la unión consigo mismo
-- $$(A - B) = (B - A) = \empty$$
-- Luego, para que $$A - B = \empty$$, $$A$$ y $$B$$ deben ser iguales
-- $$A=B$$
+$$A \cap B = \empty$$
+
+$$(A - B) \cup (B - A)= \empty$$
+
+Cómo el vacío es único, la única unión que puede dar el vacío cómo resultado, es la unión consigo mismo
+
+$$(A - B) = (B - A) = \empty$$
+
+Luego, para que $$A - B = \empty$$, $$A$$ y $$B$$ deben ser iguales
+
+$$A=B$$
+
 </LogicFlow>
 
 #### $$\Leftarrow$$)
+
 Cómo todas las propiedades utilizadas son de doble implicancia, podemos utilizar el camino inverso con comodidad
+
 <LogicFlow>
-- $$A=B$$
-- $$(A - B) = (B - A) = \empty$$
-- $$(A - B) \cup (B - A)= \empty$$
-- $$A \cap B = \empty$$
+$$A=B$$
+
+$$(A - B) = (B - A) = \empty$$
+
+$$(A - B) \cup (B - A)= \empty$$
+
+$$A \cap B = \empty$$
+
+</LogicFlow>
+
+&#x220E;
+
+## Ejercicio 22.
+
+En cada uno de los siguientes casos determinar si la relación $\Re$ en $A$ es reflexiva, simétrica, antisimétrica, transitiva, de equivalencia o de orden.
+
+### ii) $$A\in \N, \Re = \{(a,b)\in \N^2 : a+b=2k, k\in \Z\}$$
+
+¿Es reflexiva?
+
+<LogicFlow>
+$$ \forall a \in A $$
+
+$$ a + a = 2a$$
+
+Si $k=a$, entonces $a + a = 2k$
+
+$$\forall a \in A \Rightarrow a \Re a$$
+
+&#x220E;
+
+</LogicFlow>
+
+¿Es simétrica?
+
+<LogicFlow>
+$$ \forall a,b \in A $$ tal que $$ a \Re b $$
+
+$$ a + b = 2k$$ con $$ k \in \N $$
+
+Cómo la suma en los naturales es conmutativa, podemos reescribir
+
+$$ b + a = 2k$$
+
+$$ \Rightarrow b \Re a $$
+
+&#x220E;
+
+</LogicFlow>
+
+¿Es antisimétrica?
+
+<LogicFlow>
+$$a = 2k_1, b = 2k_2, k_1 \neq k_2 \Rightarrow a \neq b$$
+
+$$a + b = 2(k_1 + k_2)$$
+
+$$b + a = 2(k_1 + k_2)$$
+
+$$\Rightarrow a \Re b \land b \Re a$$
+
+$a$ y $b$ están relacionados, pero son elementos distintos.
+
+Por lo tanto, no es una relación antisimétrica.
+
+&#x220E;
+
+</LogicFlow>
+
+¿Es transitiva?
+
+<LogicFlow>
+$$a = 2k_1, b = 2k_2, c = 2k_3$$
+
+$$a+b = 2(k_1 + k_2) \Rightarrow a\Re b$$
+
+$$b+c = 2(k_2 + k_3) \Rightarrow b\Re c$$
+
+$$a+c = 2(k_1 + k_3) \Rightarrow a\Re c$$
+
+$$a\Re b \land b\Re c \Rightarrow a\Re c$$
+
+Es una relación transitiva
+
+&#x220E;
+
+</LogicFlow>
+
+### v) $$A=P(\R), X\Re Y \Leftrightarrow X\cap \{1,2,3\} \subset Y \cap \{1,2,3\}$$
+
+#### ¿Es reflexiva?
+
+<LogicFlow>
+ Sea $$X \in P(A), $$
+
+Todo conjunto es subconjunto de sí mismo.
+
+$$\Rightarrow X \cap \{1,2,3\} \subset X\cap \{1,2,3\}$$
+
+Por lo tanto, es reflexiva
+
+$$\Rightarrow X\Re X$$
+
+&#x220E;
+
+</LogicFlow>
+
+#### ¿Es simétrica?
+
+<LogicFlow>
+Sean $$X, Y \in P(\R), $$
+
+Prestemos atención que cualquier elemento en $P(\R)$, si se interescta con $\{1,2,3\}$ siempre va a estar incluido en $P(\{1,2,3\})$ <Warning>¿Hace falta demostrarlo?</Warning>
+
+$$\forall Z \in P(\R), Z \cap \{1,2,3\} \in P(\{1,2,3\})$$
+O lo que es lo mismo
+
+$$\{Z \cap \{1,2,3\}, \forall Z \in P(\R)\} \subset P(\{1,2,3\})$$ (podríamos demostrar la doble inclusión, pero con esto alcanza)
+
+Es evidente que no todos los elementos de $P(\{1,2,3\})$ se contienen a sí mismos. Por lo tanto, sólo habría que buscar un contraejemplo:
+
+Si $$X\cap \{1,2,3\} = \{1,2\}$$ y $$Y\cap \{1,2,3\} = \{1,2,3\}$$
+
+Entonces, $$X\cap \{1,2,3\} \subset Y\cap \{1,2,3\}$$.
+
+Pero $$Y\cap \{1,2,3\} \not\subset X\cap \{1,2,3\}$$.
+
+Por lo tanto $$X \Re Y \not\Rightarrow Y\Re X$$
+
+Entonces **no es simétrica**
+&#x220E;
+</LogicFlow>
+
+#### ¿Es antisimétrica?
+
+<LogicFlow>
+Si $$ X \Re Y \land Y\Re X$$ <br/> 
+entonces $$ X\cap \{1,2,3\} \subset Y \cap \{1,2,3\}$$ y $$ Y\cap \{1,2,3\} \subset X \cap \{1,2,3\}$$
+
+Esta es la definición de igualdad entre conjuntos
+
+Por lo tanto nos queda que 
+$$ X\cap \{1,2,3\} = Y \cap \{1,2,3\}$$
+
+$$X\Re Y \land Y\Re X \Rightarrow X=Y$$
+
+Entonces, **es antisimétrica**
+&#x220E;
+</LogicFlow>
+
+#### ¿Es transitiva?
+
+<LogicFlow>
+Si $$ X \Re Y \land Y\Re Z $$<br/>
+entonces $$ X\cap \{1,2,3\} \subset Y \cap \{1,2,3\} \subset Z \cap \{1,2,3\}$$
+
+Por transitividad de la inclusión,<br/> $$ X\cap \{1,2,3\} \subset Z \cap \{1,2,3\} $$
+
+$$X\Re Y \land Y\Re Z \Rightarrow X\Re Z$$
+
+Entonces, **es transitiva**
+&#x220E;
 </LogicFlow>

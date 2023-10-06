@@ -1,0 +1,111 @@
+---
+title: "Primer parcial 05/23 - Algebra I"
+description: "Primer parcial de Algebra 1, de la facultad de ciencias exactas y naturales, de la UBA"
+pubDate: "Oct 03 2023"
+# heroImage: "/blog-placeholder-5.jpg"
+---
+import LogicFlow from "../../components/LogicFlow.astro";
+
+## Ejercicio 1
+Sea $$X= \{n\in \N: 1 \leq n \leq 600\}$$ se define en $$P(X)$$ la relación dada por
+
+$$A \Re B \Leftrightarrow \#(A \Delta B) \leq 2$$
+
+### a. Determinar si $$\Re$$ es reflexiva, simétrica, antisimétrica y transitiva
+
+#### ¿Es reflexiva?
+<LogicFlow>
+Sea $$A \in P(X)$$
+
+$$ A \Delta A = (A\cup A) - (A\cap A) = A - A = \empty $$
+
+$$ \#\empty = 0 \leq 2 $$
+
+$$ A\Re A $$, **es reflexiva** &#x220E;
+</LogicFlow>
+
+#### ¿Es simétrica?
+
+<LogicFlow>
+Sea $$A, B \in P(X)$$
+
+$$ \#(A \Delta B) \leq 2 $$
+
+Cómo la diferencia simétrica es asociativa, podemos afirmar lo siguiente <br/>
+$$ A \Delta B = B \Delta A $$
+
+Por lo tanto <br/>
+$$ \#(A\Delta B) = \#(B\Delta A) \leq 2$$ <br/>
+$$ B\Re A $$
+
+Cómo se cumple que $$A\Re B \Rightarrow B\Re A$$, **es simétrica**
+&#x220E;
+</LogicFlow>
+
+#### ¿Es antisimétrica?
+
+<LogicFlow>
+Sea $$A, B \in P(X)$$, $$A\Re B \land B\Re A$$ <br/>
+¿Podemos afirmar que $$A=B$$ en todos los casos?
+
+Tomemos nota que la única limitación sea que $$\#(A\Delta B) \leq 2$$. Podemos aprovecharnos de esto, y trabajar sólo el caso máximo para encontrar un contraejemplo, $$\#(A\Delta B)=2$$
+
+Por lo tanto, podemos asumir esta forma general $$A\Delta B = \{a, b\}$$
+
+Digamos que $$ A = \{1\} $$ y $$B = \{600\}$$<br/>
+Entonces, $$A\Delta B = {1, 600}$$
+
+Cumple la simetría, porque $$A\Delta B = B\Delta A$$ (la diferencia simétrica es conmutativa). <br/> 
+Y cumple la condición de que $$\#(A\Delta B)\leq 2$$
+
+PERO $$A \neq B$$
+
+Entonces, **no es antisimétrica**.
+&#x220E;
+</LogicFlow>
+
+#### ¿Es transitiva?
+
+<LogicFlow>
+Sea $$A = \{3,4\}, B = \{4,5\}, C = \{5,6\}$$
+$$A \Delta B = \{3,5\}$$ <br/>
+Entonces, $$ A \Re B $$
+
+$$B \Delta C = \{4,6\}$$ <br/>
+Por lo tanto, $$B\Re C$$
+
+$$A \Delta C = \{3,4,5,6\}$$ <br/>
+Finalmente, $$A \Re B, B\Re C \not\Rightarrow A\Re C$$
+
+Encontramos un contraejemplo, por lo tanto **no es transitiva.**
+&#x220E;
+</LogicFlow>
+
+### b) Si $$B = \{n\in X: n \equiv 2023 mod 14\}$$ calcular el cardinal del conjunto
+
+<LogicFlow>
+$$ n \equiv 2023 mod 14 $$<br/>
+$$ 2023 \equiv 7 mod 14 $$<br/>
+$$ n \equiv 2023 \equiv 7 mod 14 $$
+
+Por transitividad
+$$ n \equiv 7 mod 14 $$
+
+Cómo 7 cumple condición de resto para $$ 7 div 14 $$, ya que $$7 = 0\cdot 14 + 7$$ y $$0\leq 7 < 14$$, podemos escribir $n$ de la siguiente forma:
+
+$$n = 14k + 7$$
+
+Cómo $$B \subset X$$, sabemos que $$1\leq n \leq 600$$<br/> sabemos que
+
+$$1 \leq 14k + 7 \leq 600\\$$
+$$-6 \leq 14k \leq 593\\$$
+$$\frac{-6}{14} \leq k \leq \frac{593}{14}$$
+
+Pero $k$ debe ser un número natural, por lo tanto hay que restringir los resultados interesctando con $\N$
+
+$$0 \leq k \leq 42$$
+
+del 0 al 42 hay 43 números (42 + 1). Por lo tanto, $$\#B = 43$$
+
+&#x220E;
+</LogicFlow>
