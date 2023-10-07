@@ -1,0 +1,77 @@
+---
+title: "Inducción con sumatorias"
+description: "Ejemplos complejos del principio de inducción para sumatorias"
+pubDate: "Oct 06 2023"
+# heroImage: "/blog-placeholder-5.jpg"
+---
+import LogicFlow from "../../components/LogicFlow.astro";
+
+## Definición
+
+Sea $$P(n)$$ una propiedad predicable sobre los números naturales
+
+- Tenga un caso base $$P(n_0)$$ verdadero
+- Y un paso inductivo $$P(h) \Rightarrow P(h+1)$$ verdadero, 
+
+Entonces, $$P(n)$$ es verdadero para todo $$n\in \N$$
+
+## Ejemplos
+
+Sea $$a, b \in \R$$. 
+1. Probar que $$\forall n \in \N$$, $$a^n-b^n = (a-b)\sum^{n}_{i=1}a^{i-1}b^{n-i}$$
+
+*Caso base*
+<LogicFlow>
+$$a-b = (a-b)a^0 b^0$$
+</LogicFlow>
+
+*Paso inductivo*
+<LogicFlow>
+Hipotesis Inductiva: <br/>
+$$a^n-b^n = (a-b)\sum^{n}_{i=1}a^{i-1}b^{n-i}$$
+
+Quiero ver que: <br/>
+$$a^{n+1}-b^{n+1} = (a-b)\sum^{n+1}_{i=1}a^{i-1}b^{n+1-i}$$
+
+Observemos que podemos probar esto partiendo de izqueirda a derecha, o de derecha a izquierda. 
+
+Para mí, siempre conviene revisar la parte de la igualdad que contiene la sumatoria, por lo tanto empezaré por la derecha
+
+Antes de aplicar propiedades, veamos que pasa con esta sumatoria
+
+$$S = \sum^{n+1}_{i=1}a^{i-1}b^{n+1-i}\\$$
+
+$$(a-b)\sum^{n+1}_{i=1}a^{i-1}b^{n+1-i}=(a-b)S = Sa - Sb$$
+
+$$S = a^0b^{h}+a^1b^{h-1}+a^2b^{h-2}+\cdots+a^{h-1}b^{1}+a^{h}b^{0}\\$$
+
+$$Sa = a^1b^{h}+a^2b^{h-1}+a^3b^{h-2}+\cdots+a^{h}b^{1}+a^{h+1}b^{0}\\$$
+$$Sb = a^0b^{h+1}+a^1b^{h}+a^2b^{h-1}+\cdots+a^{h-1}b^{2}+a^{h}b^{1}\\$$
+
+$$Sa - Sb = -a^{0}b^{h+1} + a^{h+1}b^{0}\\ $$
+$$Sa - Sb = -b^{h+1} + a^{h+1}\\ $$
+$$Sa - Sb = a^{h+1} - b^{h+1}\\ $$
+
+Que es lo que se quería probar.
+
+
+</LogicFlow>
+
+2. Deducir la fórmula de la serie geométrica: $$\forall a \neq 1$$, $$\sum^{n}_{i=0}a^{i} = \frac{a^{n+1}-1}{a-1}$$
+
+$$a^n-b^n = (a-b)\sum^{n}_{i=1}a^{i-1}b^{n-i}$$
+
+si b = 1
+
+<LogicFlow>
+
+$$a^n-1 = (a-1)\sum^{n}_{i=1}a^{i-1}\\$$
+$$\sum^{n}_{i=1}a^{i-1} = \frac{a^n-1}{a-1}\\$$
+$$\sum^{n}_{i=1}a^{i-1} = a^0+a^1+a^2+\cdots+a^{n-1}\\$$
+$$\sum^{n}_{i=1}a^{i-1} = \sum^{n-1}_{i=0}a^{i}\\$$
+
+$$\sum^{n}_{i=0}a^{i} = \sum^{n-1}_{i=0}a^{i} + a^n = \frac{a^n-1}{a-1} + a^n\\$$
+$$\sum^{n}_{i=0}a^{i} = \frac{a^n-1}{a-1} + a^n\\$$
+$$\sum^{n}_{i=0}a^{i} = \frac{a^{n+1}-1}{a-1}\\$$
+
+</LogicFlow>
